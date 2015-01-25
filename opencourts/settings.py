@@ -1,5 +1,5 @@
 """
-Django settings for basketballcourts project.
+Django settings for opencourts project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,14 +17,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bkf!drgr+n(704+g2&tnok85tzzo_)pq6%6c@1q_2wgbh=u)_*'
+SECRET_KEY = os.getenv('SECRET', 'bkf!drgr+n(704+g2&tnok85tzzo_)pq6%6c@1q_2wgbh=u)_*')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', [])
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_google_maps', 
     'courts',
 )
 
@@ -51,9 +50,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'basketballcourts.urls'
+ROOT_URLCONF = 'opencourts.urls'
 
-WSGI_APPLICATION = 'basketballcourts.wsgi.application'
+WSGI_APPLICATION = 'opencourts.wsgi.application'
 
 
 # Database
@@ -61,8 +60,13 @@ WSGI_APPLICATION = 'basketballcourts.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': os.getenv('DB_ENV_POSTGRES_USER'),
+        'PASSWORD': os.getenv('DB_ENV_POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': 5432,
+        'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
     }
 }
 
