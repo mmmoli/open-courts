@@ -8,7 +8,7 @@ CMD ["/sbin/my_init"]
 
 #   Build system and git.
 RUN /pd_build/utilities.sh
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential python python-dev libpq-dev python-setuptools
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential python python-dev libpq-dev python-setuptools binutils python-gdal libproj-dev gdal-bin
 RUN easy_install -U pip
 
 ENV PYTHONUNBUFFERED 1

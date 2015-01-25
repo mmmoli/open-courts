@@ -33,8 +33,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.gis',
     'django.contrib.messages',
+    'django.contrib.sessions',
     'django.contrib.staticfiles',
 
     'courts',
@@ -60,7 +61,7 @@ WSGI_APPLICATION = 'opencourts.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'postgres',
         'USER': os.getenv('DB_ENV_POSTGRES_USER'),
         'PASSWORD': os.getenv('DB_ENV_POSTGRES_PASSWORD'),
@@ -69,6 +70,8 @@ DATABASES = {
         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
     }
 }
+
+POSTGIS_VERSION = (2,1)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

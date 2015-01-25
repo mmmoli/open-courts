@@ -9,11 +9,11 @@ web:
     - db
 
 dbdata:
-  image: postgres
+  image: mdillon/postgis
   command: echo "Data-only container for postgres"
 
 db:
-  image: postgres
+  image: mdillon/postgis
   environment:
     - POSTGRES_USER=fake_user
     - POSTGRES_PASSWORD=fake_pass
