@@ -39,8 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # libs
-    'haystack',
+    # 'haystack',
     'rest_framework',
+    'django_google_maps',
 
     # Apps
     'courts',
