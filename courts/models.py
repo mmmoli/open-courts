@@ -12,6 +12,20 @@ class Court(models.Model):
         (TENNIS, 'Tennis'),
     )
 
+
+    APPROVED = 'AP'
+    PENDING = 'PE'
+    STATUS_CHOICES = (
+        (APPROVED, 'Approved'),
+        (PENDING, 'Pending'),
+    )
+
+    status = models.CharField(
+        max_length=2,
+        choices=STATUS_CHOICES,
+        default=PENDING
+    )
+
     court_type = models.CharField(
         max_length=2,
         choices=COURT_TYPE_CHOICES,
