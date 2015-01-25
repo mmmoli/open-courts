@@ -1,3 +1,4 @@
+# App
 web:
   build: .
   command: python manage.py runserver 0.0.0.0:8000
@@ -8,6 +9,7 @@ web:
   links:
     - db
 
+# Database
 dbdata:
   image: postgres
   command: echo "Data-only container for postgres"
