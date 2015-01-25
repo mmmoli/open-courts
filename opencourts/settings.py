@@ -40,6 +40,7 @@ INSTALLED_APPS = (
 
     # libs
     'haystack',
+    'rest_framework',
 
     # Apps
     'courts',
@@ -107,3 +108,11 @@ HAYSTACK_CONNECTIONS = {
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 40
+
+
+# REST framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly',),
+    'PAGINATE_BY': 50
+}
