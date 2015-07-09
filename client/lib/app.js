@@ -27,6 +27,7 @@ ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 
             .state('main.courts.find', {
                 url: '/',
+                controller: 'CourtsFindCtrl as vm',
                 templateUrl: 'client/views/courts.find.ng.html'
             })
 
