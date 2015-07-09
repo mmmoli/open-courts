@@ -14,18 +14,24 @@ ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
         $stateProvider
 
             .state('main', {
-                url: '/',
+                url: '',
                 abstract: true,
                 template: '<div ui-view></div>'
             })
 
             .state('main.courts', {
-                url: 'courts/',
+                url: '/courts',
+                abstract: true,
                 templateUrl: 'client/views/index.ng.html'
             })
 
+            .state('main.courts.find', {
+                url: '/',
+                templateUrl: 'client/views/courts.find.ng.html'
+            })
+
             .state('main.courts.add', {
-                url: 'add/',
+                url: '/add',
                 template: '<p>Hello Add</p>'
             })
 
