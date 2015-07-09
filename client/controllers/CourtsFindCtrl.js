@@ -1,9 +1,9 @@
 var ngModule = angular.module('open_courts');
 
-function CourtsFindCtrl() {
+function CourtsFindCtrl($meteor) {
     var vm = this;
-    vm.courts = ['court 1', 'court 2'];
+    vm.courts = $meteor.collection(Courts);
 }
 
-ngModule.controller('CourtsFindCtrl', CourtsFindCtrl);
+ngModule.controller('CourtsFindCtrl', ['$meteor', CourtsFindCtrl]);
 
