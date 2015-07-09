@@ -14,10 +14,18 @@ function CourtsFindCtrl($meteor, $log) {
             longitude: -73
         },
         zoom: 12,
-        events: {}
+        events: {},
+        marker: {
+            options: {
+                draggable: false
+            },
+            events: {}
+        }
     };
 
     ////////
+
+
 
     vm.getLocation = function () {
         var location = Geolocation.latLng() || { lat: 0, lng: 0 };

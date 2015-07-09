@@ -9,6 +9,11 @@
 <ui-gmap-google-map center="vm.newCourt.location || vm.mapDefaults.center"
                     events="vm.mapDefaults.events"
                     zoom="vm.mapDefaults.zoom">
+
+    <ui-gmap-marker coords="vm.newCourt.location" options="vm.mapDefaults.marker.options"
+                    events="vm.mapDefaults.marker.events" idkey="vm.newCourt._id">
+    </ui-gmap-marker>
+
 </ui-gmap-google-map>
 
 <hr>
