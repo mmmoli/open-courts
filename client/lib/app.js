@@ -1,7 +1,8 @@
 
 var ngModule = angular.module('open_courts', [
     'angular-meteor',
-    'ui.router'
+    'ui.router',
+    'uiGmapgoogle-maps'
 ]);
 
 ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',

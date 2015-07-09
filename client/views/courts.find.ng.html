@@ -1,9 +1,25 @@
-<h2>Find</h2>
+<h2>Add</h2>
+
+<pre>
+    {{ vm.newCourt }}
+</pre>
 
 <button ng-click="vm.getLocation()">Locate me</button>
+
+<ui-gmap-google-map center="vm.newCourt.location || vm.mapDefaults.center"
+                    events="vm.mapDefaults.events"
+                    zoom="vm.mapDefaults.zoom">
+</ui-gmap-google-map>
+
+<hr>
+
+<h2>Find</h2>
 
 <ul>
     <li ng-repeat="court in vm.courts track by $index">
         {{ court._id }}
     </li>
 </ul>
+
+
+
