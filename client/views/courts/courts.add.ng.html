@@ -1,16 +1,28 @@
-<pre>
-    {{ vm.newCourt }}
-</pre>
+<md-input-container>
+    <label>Lat</label>
+    <input ng-model="vm.court.location.latitude">
+</md-input-container>
+
+<md-input-container>
+    <label>Lng</label>
+    <input ng-model="vm.court.location.longitude">
+</md-input-container>
+
+<md-select placeholder="Court" ng-model="vm.court.type">
+    <md-option ng-repeat="type in vm.courtTypes track by $index"
+               value="{{type.label}}">{{type.label}}</md-option>
+</md-select>
+
 
 <md-button ng-click="vm.getLocation()"
            class="md-raised">Locate me</md-button>
 
-<ui-gmap-google-map center="vm.newCourt.location || vm.mapDefaults.center"
+<ui-gmap-google-map center="vm.court.location || vm.mapDefaults.center"
                     events="vm.mapDefaults.events"
                     zoom="vm.mapDefaults.zoom">
 
-    <ui-gmap-marker coords="vm.newCourt.location" options="vm.mapDefaults.marker.options"
-                    events="vm.mapDefaults.marker.events" idkey="vm.newCourt._id">
+    <ui-gmap-marker coords="vm.court.location" options="vm.mapDefaults.marker.options"
+                    events="vm.mapDefaults.marker.events" idkey="vm.court._id">
     </ui-gmap-marker>
 
 </ui-gmap-google-map>

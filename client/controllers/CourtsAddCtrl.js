@@ -5,7 +5,16 @@ ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', CourtsAddCtrl]);
 function CourtsAddCtrl($meteor, $log) {
     var vm = this;
 
-    vm.newCourt = {};
+    vm.court = {};
+
+    vm.courtTypes = [
+        {
+            label: 'Basketball'
+        },
+        {
+            label: 'Tennis'
+        }
+    ];
 
     vm.mapDefaults = {
         center: {
@@ -29,7 +38,7 @@ function CourtsAddCtrl($meteor, $log) {
     vm.getLocation = function () {
         var location = Geolocation.latLng() || { lat: 0, lng: 0 };
 
-        vm.newCourt.location = {
+        vm.court.location = {
             latitude: location.lat,
             longitude: location.lng
         };
