@@ -1,11 +1,10 @@
 var ngModule = angular.module('open_courts');
 
-ngModule.controller('CourtsFindCtrl', ['$meteor', '$log', CourtsFindCtrl]);
+ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', CourtsAddCtrl]);
 
-function CourtsFindCtrl($meteor, $log) {
+function CourtsAddCtrl($meteor, $log) {
     var vm = this;
 
-    vm.courts = $meteor.collection(Courts);
     vm.newCourt = {};
 
     vm.mapDefaults = {

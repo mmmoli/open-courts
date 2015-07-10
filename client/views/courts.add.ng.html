@@ -1,10 +1,9 @@
-<h2>Add</h2>
-
 <pre>
     {{ vm.newCourt }}
 </pre>
 
-<button ng-click="vm.getLocation()">Locate me</button>
+<md-button ng-click="vm.getLocation()"
+           class="md-raised">Locate me</md-button>
 
 <ui-gmap-google-map center="vm.newCourt.location || vm.mapDefaults.center"
                     events="vm.mapDefaults.events"
@@ -15,16 +14,3 @@
     </ui-gmap-marker>
 
 </ui-gmap-google-map>
-
-<hr>
-
-<h2>Find</h2>
-
-<ul>
-    <li ng-repeat="court in vm.courts track by $index">
-        {{ court._id }}
-    </li>
-</ul>
-
-
-

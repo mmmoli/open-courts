@@ -2,7 +2,8 @@
 var ngModule = angular.module('open_courts', [
     'angular-meteor',
     'ui.router',
-    'uiGmapgoogle-maps'
+    'uiGmapgoogle-maps',
+    'ngMaterial'
 ]);
 
 ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
@@ -15,27 +16,30 @@ ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
         $stateProvider
 
             .state('main', {
-                url: '',
+                url: '/',
                 abstract: true,
-                template: '<div ui-view></div>'
+                templateUrl: 'client/views/main.ng.html'
             })
 
             .state('main.courts', {
-                url: '/courts',
+                url: 'courts',
                 abstract: true,
-                templateUrl: 'client/views/index.ng.html'
+                templateUrl: 'client/views/courts.ng.html'
             })
 
             .state('main.courts.find', {
                 url: '/',
-                controller: 'CourtsFindCtrl as vm',
-                templateUrl: 'client/views/courts.find.ng.html'
+                views: {
+                    add: {
+                        controller: 'CourtsAddCtrl as vm',
+                        templateUrl: 'client/views/courts.add.ng.html'
+                    },
+                    list: {
+                        controller: 'CourtsListCtrl as vm',
+                        templateUrl: 'client/views/courts.list.ng.html'
+                    }
+                }
             })
 
-            .state('main.courts.add', {
-                url: '/add',
-                template: '<p>Hello Add</p>'
-            })
-
-        ;
+            ;
     }]);
