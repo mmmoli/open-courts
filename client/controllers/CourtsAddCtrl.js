@@ -5,8 +5,6 @@ ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', CourtsAddCtrl]);
 function CourtsAddCtrl($meteor, $log) {
     var vm = this;
 
-    vm.court = {};
-
     vm.courtTypes = [
         {
             label: 'Basketball'
@@ -15,6 +13,10 @@ function CourtsAddCtrl($meteor, $log) {
             label: 'Tennis'
         }
     ];
+
+    vm.court = {
+        type: vm.courtTypes[0].label
+    };
 
     vm.mapDefaults = {
         center: {

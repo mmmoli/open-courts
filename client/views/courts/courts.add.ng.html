@@ -9,8 +9,13 @@
 </md-input-container>
 
 <md-select placeholder="Court" ng-model="vm.court.type">
+
     <md-option ng-repeat="type in vm.courtTypes track by $index"
-               value="{{type.label}}">{{type.label}}</md-option>
+               value="{{type.label}}"
+               ng-selected="{{ type.label === vm.court.type }}">
+        {{type.label}}
+    </md-option>
+
 </md-select>
 
 
@@ -22,7 +27,7 @@
                     zoom="vm.mapDefaults.zoom">
 
     <ui-gmap-marker coords="vm.court.location" options="vm.mapDefaults.marker.options"
-                    events="vm.mapDefaults.marker.events" idkey="vm.court._id">
+                    events="vm.mapDefaults.marker.events">
     </ui-gmap-marker>
 
 </ui-gmap-google-map>
