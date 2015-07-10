@@ -24,7 +24,7 @@ ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
             .state('main.courts', {
                 url: 'courts',
                 abstract: true,
-                templateUrl: 'client/views/courts.ng.html'
+                templateUrl: 'client/views/courts/courts.ng.html'
             })
 
             .state('main.courts.find', {
@@ -32,11 +32,11 @@ ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
                 views: {
                     add: {
                         controller: 'CourtsAddCtrl as vm',
-                        templateUrl: 'client/views/courts.add.ng.html'
+                        templateUrl: 'client/views/courts/courts.add.ng.html'
                     },
                     list: {
                         controller: 'CourtsListCtrl as vm',
-                        templateUrl: 'client/views/courts.list.ng.html'
+                        templateUrl: 'client/views/courts/courts.list.ng.html'
                     }
                 }
             })
