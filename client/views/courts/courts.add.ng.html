@@ -1,23 +1,29 @@
-<md-input-container>
-    <label>Lat</label>
-    <input ng-model="vm.court.location.latitude">
-</md-input-container>
 
-<md-input-container>
-    <label>Lng</label>
-    <input ng-model="vm.court.location.longitude">
-</md-input-container>
+<div flex="80">
+    <md-input-container>
+        <label>Description</label>
+        <textarea ng-model="vm.court.description"
+                  columns="1"></textarea>
+    </md-input-container>
+</div>
 
-<md-select placeholder="Court" ng-model="vm.court.type">
+<div flex="20">
+    <md-select placeholder="Court" ng-model="vm.court.type">
 
-    <md-option ng-repeat="type in vm.courtTypes track by $index"
-               value="{{type.label}}"
-               ng-selected="{{ type.label === vm.court.type }}">
-        {{type.label}}
-    </md-option>
+        <md-option ng-repeat="type in vm.courtTypes track by $index"
+                   value="{{type.label}}"
+                   ng-selected="{{ type.label === vm.court.type }}">
+            {{type.label}}
+        </md-option>
 
-</md-select>
+    </md-select>
 
+</div>
+
+
+
+
+<md-divider></md-divider>
 
 <md-button ng-click="vm.getLocation()"
            class="md-raised">Locate me</md-button>
