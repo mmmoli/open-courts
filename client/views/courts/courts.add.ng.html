@@ -1,47 +1,52 @@
 
-<pre>
-    {{ vm.court }}
-</pre>
+<div ng-if="$root.currentUser._id">
 
-<div flex="80">
-    <md-input-container>
-        <label>Description</label>
-        <textarea ng-model="vm.court.description"
-                  columns="1"></textarea>
-    </md-input-container>
+    <pre>
+        {{ vm.court }}
+    </pre>
+
+    <div flex="80">
+        <md-input-container>
+            <label>Description</label>
+            <textarea ng-model="vm.court.description"
+                      columns="1"></textarea>
+        </md-input-container>
+    </div>
+
+    <div flex="20">
+        <md-select placeholder="Court" ng-model="vm.court.type">
+
+            <md-option ng-repeat="type in vm.courtTypes track by $index"
+                       value="{{type}}"
+                       ng-selected="{{ type === vm.court.type }}">
+                {{ type }}
+            </md-option>
+    </div>
+
+    <div flex="100">
+        <md-button ng-click="vm.add()"
+                   class="md-raised">Create</md-button>
+    </div>
+
+
+    <div flex="100">
+        <md-divider></md-divider>
+
+        <md-button ng-click="vm.getLocation()">I'm standing in one. Locate me</md-button>
+
+        <ui-gmap-google-map center="vm.court.location"
+                            events="vm.mapDefaults.events"
+                            zoom="vm.mapDefaults.zoom">
+
+            <ui-gmap-marker coords="vm.court.location"
+                            options="vm.mapDefaults.marker.options"
+                            events="vm.mapDefaults.marker.events"
+                            idkey="'marker'">
+            </ui-gmap-marker>
+
+    </div>
 </div>
 
-<div flex="20">
-    <md-select placeholder="Court" ng-model="vm.court.type">
-
-        <md-option ng-repeat="type in vm.courtTypes track by $index"
-                   value="{{type}}"
-                   ng-selected="{{ type === vm.court.type }}">
-            {{ type }}
-        </md-option>
-
-    </md-select>
-</div>
-
-<div flex="100">
-    <md-button ng-click="vm.add()"
-               class="md-raised">Create</md-button>
-</div>
-
-<div flex="100">
-    <md-divider></md-divider>
-
-    <md-button ng-click="vm.getLocation()">I'm standing in one. Locate me</md-button>
-
-    <ui-gmap-google-map center="vm.court.location || vm.mapDefaults.center"
-                        events="vm.mapDefaults.events"
-                        zoom="vm.mapDefaults.zoom">
-
-        <ui-gmap-marker coords="vm.court.location"
-                        options="vm.mapDefaults.marker.options"
-                        events="vm.mapDefaults.marker.events"
-                        idkey="'marker'">
-        </ui-gmap-marker>
-
-    </ui-gmap-google-map>
+<div ng-if="!$root.currentUser._id">
+    <meteor-include src="loginButtons"></meteor-include>
 </div>

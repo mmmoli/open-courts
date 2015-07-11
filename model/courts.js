@@ -32,10 +32,10 @@ Schemas.Court = new SimpleSchema({
         label: "Court Type"
     },
 
-    //owner: {
-    //    type: String,
-    //    label: "Owner"
-    //},
+    owner: {
+        type: String,
+        label: "Owner"
+    },
 
     description: {
         type: String,
@@ -45,3 +45,19 @@ Schemas.Court = new SimpleSchema({
 });
 
 Courts.attachSchema(Schemas.Court);
+
+Courts.allow({
+
+    insert: function (userId, court) {
+        return userId && court.owner === userId;
+    },
+
+    update: function (userId, court, fields, modifier) {
+        return userId && court.owner === userId;
+    },
+
+    remove: function (userId, court) {
+        return userId && court.owner === userId;
+    }
+});
+
