@@ -1,4 +1,8 @@
 
+<pre>
+    {{ vm.court }}
+</pre>
+
 <div flex="80">
     <md-input-container>
         <label>Description</label>
@@ -11,23 +15,23 @@
     <md-select placeholder="Court" ng-model="vm.court.type">
 
         <md-option ng-repeat="type in vm.courtTypes track by $index"
-                   value="{{type.label}}"
-                   ng-selected="{{ type.label === vm.court.type }}">
-            {{type.label}}
+                   value="{{type}}"
+                   ng-selected="{{ type === vm.court.type }}">
+            {{ type }}
         </md-option>
 
     </md-select>
 </div>
 
 <div flex="100">
-    <md-button ng-click="vm.add(vm.court)"
+    <md-button ng-click="vm.add()"
                class="md-raised">Create</md-button>
 </div>
 
 <div flex="100">
     <md-divider></md-divider>
 
-    <md-button ng-click="vm.getLocation()">Locate me</md-button>
+    <md-button ng-click="vm.getLocation()">I'm standing in one. Locate me</md-button>
 
     <ui-gmap-google-map center="vm.court.location || vm.mapDefaults.center"
                         events="vm.mapDefaults.events"
@@ -36,7 +40,7 @@
         <ui-gmap-marker coords="vm.court.location"
                         options="vm.mapDefaults.marker.options"
                         events="vm.mapDefaults.marker.events"
-                        idkey="vm.court._id">
+                        idkey="'marker'">
         </ui-gmap-marker>
 
     </ui-gmap-google-map>
