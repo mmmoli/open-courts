@@ -1,7 +1,7 @@
-<h2>Find</h2>
-
-<ul>
-    <li ng-repeat="court in vm.courts track by $index">
-        {{court.type }} – {{ court._id }}
-    </li>
-</ul>
+<md-list>
+    <md-list-item ng-repeat="court in vm.courts track by $index">
+        <md-button>
+            {{ court._id }}
+        </md-button>
+    </md-list-item>
+</md-list>

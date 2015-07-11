@@ -1,18 +1,19 @@
-<h1>Open Courts</h1>
+<div layout="row"
+     flex>
+    <md-sidenav md-component-id="left"
+                md-is-locked-open="true"
+                layout="column"
+                class="md-whiteframe-z1"
+                ui-view="list">
 
-<div layout="row" layout-margin>
+    </md-sidenav>
 
-    <div flex="66"
-         ui-view="add">
-    </div>
+    <md-content id="content"
+                ui-view="add"
+                flex>
 
-    <div flex
-         ui-view="list">
-    </div>
-
+    </md-content>
 </div>
-
-
 
 
 
