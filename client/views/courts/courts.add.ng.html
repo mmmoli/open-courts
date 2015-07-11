@@ -21,6 +21,7 @@
                        ng-selected="{{ type === vm.court.type }}">
                 {{ type }}
             </md-option>
+        </md-select>
     </div>
 
     <div flex="100">
@@ -43,10 +44,7 @@
                             events="vm.mapDefaults.marker.events"
                             idkey="'marker'">
             </ui-gmap-marker>
+        </ui-gmap-google-map>
 
     </div>
-</div>
-
-<div ng-if="!$root.currentUser._id">
-    <meteor-include src="loginButtons"></meteor-include>
 </div>

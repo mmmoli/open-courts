@@ -1,9 +1,9 @@
 var ngModule = angular.module('open_courts');
 
 
-ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', 'CourtService', '$rootScope', CourtsAddCtrl]);
+ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', '$rootScope', CourtsAddCtrl]);
 
-function CourtsAddCtrl($meteor, $log, CourtService, $rootScope) {
+function CourtsAddCtrl($meteor, $log, $rootScope) {
     var vm = this;
 
     vm.courtTypes = COURT_TYPES;
@@ -26,6 +26,7 @@ function CourtsAddCtrl($meteor, $log, CourtService, $rootScope) {
     ////////
 
     vm.add = function() {
+        vm.court.owner = $rootScope.currentUser._id;
         vm.courts.save(vm.court).then(
             function(numberOfDocs){
                 $log.log('save success doc affected ', numberOfDocs);
