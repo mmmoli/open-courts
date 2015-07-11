@@ -1,21 +1,14 @@
 var ngModule = angular.module('open_courts');
 
-ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', CourtsAddCtrl]);
+ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', 'CourtService', CourtsAddCtrl]);
 
-function CourtsAddCtrl($meteor, $log) {
+function CourtsAddCtrl($meteor, $log, CourtService) {
     var vm = this;
 
-    vm.courtTypes = [
-        {
-            label: 'Basketball'
-        },
-        {
-            label: 'Tennis'
-        }
-    ];
+    vm.courtTypes = CourtService.types();
 
     vm.court = {
-        type: vm.courtTypes[0].label
+        type: CourtService.defaultCourtType.label
     };
 
     vm.mapDefaults = {
@@ -35,8 +28,6 @@ function CourtsAddCtrl($meteor, $log) {
 
     ////////
 
-
-
     vm.getLocation = function () {
         var location = Geolocation.latLng() || { lat: 0, lng: 0 };
 
@@ -44,7 +35,9 @@ function CourtsAddCtrl($meteor, $log) {
             latitude: location.lat,
             longitude: location.lng
         };
-    }
+    };
+
+    vm.add = CourtService.add;
 }
 
 

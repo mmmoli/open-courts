@@ -17,23 +17,27 @@
         </md-option>
 
     </md-select>
-
 </div>
 
+<div flex="100">
+    <md-button ng-click="vm.add(vm.court)"
+               class="md-raised">Create</md-button>
+</div>
 
+<div flex="100">
+    <md-divider></md-divider>
 
+    <md-button ng-click="vm.getLocation()">Locate me</md-button>
 
-<md-divider></md-divider>
+    <ui-gmap-google-map center="vm.court.location || vm.mapDefaults.center"
+                        events="vm.mapDefaults.events"
+                        zoom="vm.mapDefaults.zoom">
 
-<md-button ng-click="vm.getLocation()"
-           class="md-raised">Locate me</md-button>
+        <ui-gmap-marker coords="vm.court.location"
+                        options="vm.mapDefaults.marker.options"
+                        events="vm.mapDefaults.marker.events"
+                        idkey="vm.court._id">
+        </ui-gmap-marker>
 
-<ui-gmap-google-map center="vm.court.location || vm.mapDefaults.center"
-                    events="vm.mapDefaults.events"
-                    zoom="vm.mapDefaults.zoom">
-
-    <ui-gmap-marker coords="vm.court.location" options="vm.mapDefaults.marker.options"
-                    events="vm.mapDefaults.marker.events">
-    </ui-gmap-marker>
-
-</ui-gmap-google-map>
+    </ui-gmap-google-map>
+</div>

@@ -1,11 +1,13 @@
 var ngModule = angular.module('open_courts');
 
-ngModule.controller('CourtsListCtrl', ['$meteor', '$log', CourtsListCtrl]);
+ngModule.controller('CourtsListCtrl', ['$meteor', '$log', 'CourtService', CourtsListCtrl]);
 
-function CourtsListCtrl($meteor, $log) {
+function CourtsListCtrl($meteor, $log, CourtService) {
     var vm = this;
 
-    vm.courts = $meteor.collection(Courts);
+    vm.courts = CourtService.all();
+
+    vm.remove = CourtService.remove;
 }
 
 
