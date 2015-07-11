@@ -6,6 +6,15 @@ function CourtService($meteor, $log) {
 
     var courts = $meteor.collection(Courts);
 
+    var courtTypes = [
+        {
+            label: 'Basketball'
+        },
+        {
+            label: 'Tennis'
+        }
+    ];
+
     var courtService = {
 
         all: function() {
@@ -21,20 +30,9 @@ function CourtService($meteor, $log) {
             courts.remove(court);
         },
 
-        types: function() {
-            return [
-                {
-                    label: 'Basketball'
-                },
-                {
-                    label: 'Tennis'
-                }
-            ];
-        },
+        courtTypes: courtTypes,
 
-        defaultCourtType: function() {
-            return courtService.types[0];
-        }
+        defaultCourtType: courtTypes[0]
     };
 
     return courtService;

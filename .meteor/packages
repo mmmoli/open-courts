@@ -6,9 +6,10 @@
 
 meteor-platform
 autopublish
-insecure
 urigo:angular
 angularui:angular-ui-router
 mdg:geolocation
 angularui:angular-google-maps
 angular:angular-material
+accounts-password
+accounts-ui

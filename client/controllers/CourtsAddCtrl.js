@@ -1,21 +1,22 @@
 var ngModule = angular.module('open_courts');
 
-ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', 'CourtService', CourtsAddCtrl]);
+ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', 'CourtService', '$rootScope', CourtsAddCtrl]);
 
-function CourtsAddCtrl($meteor, $log, CourtService) {
+function CourtsAddCtrl($meteor, $log, CourtService, $rootScope) {
     var vm = this;
 
-    vm.courtTypes = CourtService.types();
+    vm.courtTypes = CourtService.courtTypes;
 
     vm.court = {
-        type: CourtService.defaultCourtType.label
+        type: CourtService.defaultCourtType.label,
+        owner: $rootScope.currentUser._id,
+        location: {
+            latitude: 45,
+            longitude: -73
+        }
     };
 
     vm.mapDefaults = {
-        center: {
-            latitude: 45,
-            longitude: -73
-        },
         zoom: 12,
         events: {},
         marker: {
