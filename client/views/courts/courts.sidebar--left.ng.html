@@ -34,33 +34,6 @@
 
     </div>
 
-    <div class="box">
-        <pre>
-            {{ vm.court }}
-        </pre>
-
-        <div layout="row">
-            <md-input-container>
-                <label>Description</label>
-            <textarea ng-model="vm.court.description"
-                      columns="1"></textarea>
-            </md-input-container>
-
-            <md-select placeholder="Court" ng-model="vm.court.type">
-
-                <md-option ng-repeat="type in vm.courtTypes track by $index"
-                           value="{{type}}"
-                           ng-selected="{{ type === vm.court.type }}">
-                    {{ type }}
-                </md-option>
-            </md-select>
-
-        </div>
-
-        <md-button ng-click="vm.add()">Create</md-button>
-
-    </div>
-
 
 
 </div>
