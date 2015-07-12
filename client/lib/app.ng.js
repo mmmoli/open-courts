@@ -14,27 +14,13 @@ ngModule.config(function($urlRouterProvider, $stateProvider, $locationProvider){
 
         $stateProvider
 
-            .state('main', {
-                url: '/',
-                abstract: true,
-                templateUrl: 'client/views/main.ng.html'
-            })
-
-            .state('main.courts', {
-                url: 'courts',
-                abstract: true,
-                templateUrl: 'client/views/courts/courts.ng.html'
-            })
-
-            .state('main.courts.find', {
+            .state('courts', {
                 url: '/',
                 views: {
                     add: {
-                        controller: 'CourtsAddCtrl as vm',
                         templateUrl: 'client/views/courts/courts.add.ng.html'
                     },
                     list: {
-                        controller: 'CourtsListCtrl as vm',
                         templateUrl: 'client/views/courts/courts.list.ng.html'
                     }
                 }
@@ -44,9 +30,3 @@ ngModule.config(function($urlRouterProvider, $stateProvider, $locationProvider){
     });
 
 
-ngModule.config(function($mdThemingProvider, $mdIconProvider){
-
-        $mdThemingProvider.theme('default')
-            .primaryPalette('blue')
-            .accentPalette('red');
-    });

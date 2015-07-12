@@ -6,5 +6,134 @@
 
 <body ng-app="open_courts"
       layout="column">
-    <div ui-view></div>
+
+<md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+
+        <h1>Open courts</h1>
+
+    </div>
+</md-toolbar>
+
+<div layout="row">
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-md')">
+
+        <md-content>
+
+            <md-list>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <h3>Wapping, London</h3>
+                        <p>Some line of copy here</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+
+        </md-content>
+    </md-sidenav>
+
+    <md-content flex>
+
+        <div layout="row" layout-margin layout-fill>
+
+
+            <ui-gmap-google-map center="{ latitude:52.2,longitude:0 }"
+                                zoom="8" flex>
+
+            </ui-gmap-google-map>
+
+
+        </div>
+
+    </md-content>
+
+    <div class="add-speed-dial">
+        <md-fab-speed-dial md-direction="up"
+                           class="md-fling">
+            <md-fab-trigger>
+
+                <md-button aria-label="menu" class="md-fab md-warn">
+                    +
+                </md-button>
+
+            </md-fab-trigger>
+
+            <md-fab-actions>
+
+                <md-button aria-label="tennis"
+                           class="md-fab md-raised md-mini">
+                    TE
+                </md-button>
+
+                <md-button aria-label="basketball"
+                           class="md-fab md-raised md-mini">
+                    BA
+                </md-button>
+
+
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </div>
+</div>
+
+
+
+
 </body>

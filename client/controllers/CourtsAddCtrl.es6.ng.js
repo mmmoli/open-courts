@@ -1,10 +1,10 @@
-var ngModule = angular.module('open_courts');
+const ngModule = angular.module('open_courts');
 
 
 ngModule.controller('CourtsAddCtrl', CourtsAddCtrl);
 
 function CourtsAddCtrl($meteor, $log, $rootScope) {
-    var vm = this;
+    let vm = this;
 
     vm.courtTypes = COURT_TYPES;
 
@@ -37,8 +37,8 @@ function CourtsAddCtrl($meteor, $log, $rootScope) {
         );
     };
 
-    vm.getLocation = function () {
-        var location = Geolocation.latLng() || { lat: 0, lng: 0 };
+    vm.getLocation = function() {
+        let location = Geolocation.latLng() || { lat: 0, lng: 0 };
 
         vm.court.location = {
             latitude: location.lat,
