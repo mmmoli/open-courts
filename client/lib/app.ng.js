@@ -27,6 +27,29 @@ ngModule.config(function($urlRouterProvider, $stateProvider, $locationProvider){
                 }
             })
 
+            .state('courts.add', {
+                url: 'add/',
+                views: {
+                    'sidebar-right@': {
+                        controller: 'CourtsAddCtrl as vm',
+                        templateUrl: 'client/views/courts/courts.add.ng.html',
+                    }
+                },
+                onEnter: function($mdSidenav){
+                    window.console.log('enter');
+                    $mdSidenav('right').open().then(function () {
+                        window.console.debug("open RIGHT is done");
+                    });
+                },
+
+                onExit: function($mdSidenav){
+                    window.console.log('close');
+                    $mdSidenav('right').close().then(function () {
+                        window.console.debug("close RIGHT is done");
+                    });
+                }
+            })
+
             ;
     });
 

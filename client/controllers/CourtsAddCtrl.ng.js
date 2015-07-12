@@ -1,14 +1,14 @@
-const ngModule = angular.module('open_courts');
+var ngModule = angular.module('open_courts');
 
 
 ngModule.controller('CourtsAddCtrl', CourtsAddCtrl);
 
 function CourtsAddCtrl($meteor, $log, $rootScope) {
-    let vm = this;
+    var vm = this;
 
     vm.courtTypes = COURT_TYPES;
 
-    vm.courts = $meteor.collection(Courts, false);
+    //vm.courts = $meteor.collection(Courts, false);
 
     vm.court = {};
 
@@ -22,6 +22,7 @@ function CourtsAddCtrl($meteor, $log, $rootScope) {
             events: {}
         }
     };
+
 
     ////////
 
@@ -38,7 +39,7 @@ function CourtsAddCtrl($meteor, $log, $rootScope) {
     };
 
     vm.getLocation = function() {
-        let location = Geolocation.latLng() || { lat: 0, lng: 0 };
+        var location = Geolocation.latLng() || { lat: 0, lng: 0 };
 
         vm.court.location = {
             latitude: location.lat,
