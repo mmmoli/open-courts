@@ -17,8 +17,8 @@ ngModule.config(function($urlRouterProvider, $stateProvider, $locationProvider){
             .state('courts', {
                 url: '/',
                 views: {
-                    find: {
-                        templateUrl: 'client/views/courts/courts.find.ng.html'
+                    'sidebar-left': {
+                        templateUrl: 'client/views/courts/courts.sidebar--left.ng.html'
                     },
                     map: {
                         controller: 'CourtsMapCtrl as vm',
