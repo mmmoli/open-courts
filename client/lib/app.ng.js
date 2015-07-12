@@ -6,8 +6,7 @@ var ngModule = angular.module('open_courts', [
     'ngMaterial'
 ]);
 
-ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
-    function($urlRouterProvider, $stateProvider, $locationProvider){
+ngModule.config(function($urlRouterProvider, $stateProvider, $locationProvider){
 
         $locationProvider.html5Mode(true);
 
@@ -42,13 +41,12 @@ ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
             })
 
             ;
-    }]);
+    });
 
 
-ngModule.config(['$mdThemingProvider', '$mdIconProvider',
-    function($mdThemingProvider, $mdIconProvider){
+ngModule.config(function($mdThemingProvider, $mdIconProvider){
 
         $mdThemingProvider.theme('default')
             .primaryPalette('blue')
             .accentPalette('red');
-    }]);
+    });

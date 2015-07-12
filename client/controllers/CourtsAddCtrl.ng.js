@@ -1,7 +1,7 @@
 var ngModule = angular.module('open_courts');
 
 
-ngModule.controller('CourtsAddCtrl', ['$meteor', '$log', '$rootScope', CourtsAddCtrl]);
+ngModule.controller('CourtsAddCtrl', CourtsAddCtrl);
 
 function CourtsAddCtrl($meteor, $log, $rootScope) {
     var vm = this;
