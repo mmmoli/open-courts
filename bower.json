@@ -1,0 +1,20 @@
+{
+  "name": "open-courts",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mmmoli/open-courts",
+  "authors": [
+    "Michele Memoli <michele@100shapes.com>"
+  ],
+  "description": "Open courts database",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cardinal": "~3.2.4"
+  }
+}

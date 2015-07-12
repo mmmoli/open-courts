@@ -43,3 +43,12 @@ ngModule.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
 
             ;
     }]);
+
+
+ngModule.config(['$mdThemingProvider', '$mdIconProvider',
+    function($mdThemingProvider, $mdIconProvider){
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue')
+            .accentPalette('red');
+    }]);
