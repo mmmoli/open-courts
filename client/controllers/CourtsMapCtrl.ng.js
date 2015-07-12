@@ -1,8 +1,8 @@
 var ngModule = angular.module('open_courts');
 
-ngModule.controller('CourtsListCtrl', CourtsListCtrl);
+ngModule.controller('CourtsMapCtrl', CourtsMapCtrl);
 
-function CourtsListCtrl($meteor, $log) {
+function CourtsMapCtrl($meteor, $log) {
     var vm = this;
 
     vm.courts = $meteor.collection(Courts);

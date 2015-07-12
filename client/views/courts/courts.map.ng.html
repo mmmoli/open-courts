@@ -1,0 +1,10 @@
+<ui-gmap-google-map center="{ latitude:52.2,longitude:0 }"
+                    zoom="8" flex>
+
+    <ui-gmap-markers models="vm.courts"
+                     coords="'location'"
+                     idKey="'_id'"
+                     doCluster="true">
+    </ui-gmap-markers>
+
+</ui-gmap-google-map>
